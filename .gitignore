@@ -162,3 +162,4 @@ node_modules/
 !.elasticbeanstalk/*.global.yml
 
 secret.py
+Untitled.ipynb
