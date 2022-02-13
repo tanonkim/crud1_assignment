@@ -7,28 +7,24 @@ from products.models import Menu, Category, Drink
 
 
 class ProductsView(View):
-    # Create
     def post(self, request):
         data = json.loads(request.body)
         menu = Menu.objects.create(name=data["menu"])
         category = Category.objects.create(name=data["category"], menu=menu)
         Drink.objects.create(name=data["product"], category=category, menu=menu)
-
-        return JsonResponse({"messasge": "created"}, status=201)
+        return JsonResponse({"MESSAGE": "CREATED"}, status=201)
 
     # Read
     def get(self, request):
         products = Drink.objects.all()
         results = []
-
         for product in products:
             results.append(
                 {
                     "menu": product.category.menu.name,
                     "category": product.category.name,
-                    "product_name": product.name,
+                    "product_name": product.korean_name,
                 }
             )
 
-        return JsonResponse({"results": results}, status=200)
-
+        return JsonResponse({"resutls": results}, status=200)
