@@ -25,7 +25,7 @@ class Allergy(models.Model):
 
 class Category(models.Model):
     menu = models.ForeignKey(
-        "Menu", related_name="menus", on_delete=models.CASCADE, null=True
+        "Menu", related_name="categories", on_delete=models.CASCADE, null=True
     )
     name = models.CharField(max_length=45)
 
