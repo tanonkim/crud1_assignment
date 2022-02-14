@@ -18,4 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path("products", include("products.urls")),
+    # include는 products의 urls.py로 보냄.
+    # 127.0.0.1:8000/products/1
 ]
